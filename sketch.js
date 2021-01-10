@@ -1,9 +1,13 @@
 var helicopterIMG, helicopterSprite, packageSprite,packageIMG;
 var packageBody,ground
+var log1
+var log2
+var log3
 const Engine = Matter.Engine;
 const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
+
 
 function preload()
 {
@@ -27,11 +31,20 @@ function setup() {
 	groundSprite=createSprite(width/2, height-35, width,10);
 	groundSprite.shapeColor=color(255)
 
+	log1 = createSprite(400, 650, 200, 20) 
+	log1.shapeColor = ("red")
+
+	log2 = createSprite(300, 610, 20, 100)
+	log2.shapeColor = ("red")
+
+	log3 = createSprite(500, 610, 20, 100)
+	log3.shapeColor = ("red")
+
 
 	engine = Engine.create();
 	world = engine.world;
 
-	packageBody = Bodies.circle(width/2 , 200 , 5 , {restitution:1, isStatic:true});
+	packageBody = Bodies.circle(width/2 , 200 , 5 , {restitution:0.4, isStatic:true});
 	World.add(world, packageBody);
 	
 
